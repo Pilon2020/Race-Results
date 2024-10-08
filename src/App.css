@@ -1,38 +1,191 @@
-.App {
-  text-align: center;
+/* Ensure the gradient covers the entire page */
+html {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(0deg, rgb(0, 60, 84), rgba(0, 125, 255));
+  padding: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin-top: 70px;
+  background: rgba(223, 223, 223, 0.9);
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1 {
+  font-size: 4vh;
+  margin: 0px;
+}
+
+h2 {
+  margin: 0px;
+  margin-top: 10px;
+}
+
+p {
+  margin: 0px;
+}
+
+.container {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+input#search {
+  color: black; /* Set text color to black for visibility */
+  padding: 12px 10px;
+  width: 60vw;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+ul.drop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: white;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+  margin-top: 0;
+  padding-left: 0;  /* Remove padding */
+}
+
+ul.drop.show {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow-y: auto;
+  color: black;
+}
+
+ul li {
+  font-size: 13px;
+  padding: 10px 10px;
+  list-style: none;
+  margin: 0;  /* Remove margin */
+  text-align: left;  /* Ensure text aligns to the left */
+}
+
+.match {
+  font-weight: 600;
+  color: green;
+}
+
+@media only screen and (min-width: 600px) {
+  input#search {
+    width: 40vw; /* Adjust width for larger screens */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  position: fixed; /* Fixes the header to the top of the page */
+  top: 0;
+  left: 0;
+  right: 0; /* Ensures the header stretches across the full width */
+  background-color: rgba(0, 60, 84, 0.9); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding for spacing */
+  z-index: 1000; /* Ensures the header stays above other elements */
+  height: 50px; /* Increased height to accommodate search bar */
+  display: flex; /* Use Flexbox */
+  justify-content: space-between; /* Space between nav links and search bar */
+  align-items: center; /* Center items vertically */
+
+ /* Styles for search container and dropdown */
+ .search-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative; /* Ensure dropdown aligns properly */
+  width: 30vw; /* Adjusted width for alignment */
 }
 
-.App-link {
-  color: #61dafb;
+input#search {
+  color: black; /* Set text color to black for visibility */
+  padding: 12px 10px;
+  width: 100%; /* Set to 100% of the container */
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+ul.drop {
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Align it with the left side of the input */
+  width: 100%; /* Match the width of the input */
+  top: 100%; /* Position just below the input */
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+ul.drop.show {
+  max-height: 200px; /* Adjust max height if necessary */
+  opacity: 1;
+  overflow-y: auto;
+  color: black;
+}
+
+ul li {
+  font-size: 13px;
+  padding: 10px 10px;
+  list-style: none;
+}
+
+.nav-links {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Flexbox for horizontal alignment */
+  gap: 15px; /* Space between links */
+}
+
+.nav-links a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+@media only screen and (min-width: 600px) {
+  input#search {
+    width: 100%; /* Full width for larger screens */
   }
 }
+}
+
+.nav-links {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Flexbox for horizontal alignment */
+  gap: 15px; /* Space between links */
+}
+
+.nav-links a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-links a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative; /* Ensure dropdown aligns properly */
+}
+

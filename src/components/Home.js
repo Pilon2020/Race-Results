@@ -64,52 +64,52 @@ const Home = ({ athleteData }) => {
   });
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      <div className="search-bar">
-        <input
-          placeholder="Search by Name or Event"
-          onChange={(event) => setQuery(event.target.value)}
-          className="SearchBar"
-        />
 
+    /* Search Bar idea from: https://codepen.io/bugrakocak/pen/EMbKoB */
+    <div className="container">
+      <input
+        id="search"
+        placeholder="Search by Name or Event"
+        onChange={(event) => setQuery(event.target.value)}
+        value={query}
+        className="SearchBar"
+      />
+      
+      {/* Apply 'show' class only if there are results */}
+      <ul className={`drop ${filteredAthletes.length || uniqueRaceEntries.length ? 'show' : ''}`}>
         {/* Display filtered athletes */}
-        {debouncedQuery && filteredAthletes.length > 0 ? (
+        {debouncedQuery && filteredAthletes.length > 0 && (
           filteredAthletes.map((athlete, index) => (
-            <Link 
-              to={`/Athlete/${athlete.first_name}_${athlete.last_name}`} 
-              key={index}
-              style={{ textDecoration: 'none', color: 'inherit' }}
-            >
-              <div>
-                <p>{athlete.first_name} {athlete.last_name} - {athlete.city}, {athlete.state}</p>
-              </div>
-            </Link>
+            <li key={index}>
+              <Link 
+                to={`/Athlete/${athlete.first_name}_${athlete.last_name}`} 
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                {athlete.first_name} {athlete.last_name} - {athlete.city}, {athlete.state}
+              </Link>
+            </li>
           ))
-        ) : debouncedQuery ? (
-          <p>No athlete results found</p>
-        ) : (
-          <p></p>
         )}
 
         {/* Display unique race events */}
-        {debouncedQuery && uniqueRaceEntries.length > 0 ? (
+        {debouncedQuery && uniqueRaceEntries.length > 0 && (
           uniqueRaceEntries.map((result, index) => (
-            <Link 
-              to={`/race/${result.Race.replace(/ /g, '_')}/${result.Date.replace(/\//g, '-')}`} 
-              key={index}
-              style={{ textDecoration: 'none', color: 'inherit' }}
-            >
-              <div>
-                <p>{result.Race} - {result.Date}</p>
-              </div>
-            </Link>
+            <li key={index}>
+              <Link 
+                to={`/race/${result.Race.replace(/ /g, '_')}/${result.Date.replace(/\//g, '-')}`} 
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                {result.Race} - {result.Date}
+              </Link>
+            </li>
           ))
-        ) : debouncedQuery ? (
-          <p>No event results found</p>
-        ) : (
-          <p></p>
         )}
-      </div>
+        
+        {/* Show 'No results found' if there are no matches */}
+        {debouncedQuery && filteredAthletes.length === 0 && uniqueRaceEntries.length === 0 && (
+          <li>No results found</li>
+        )}
+      </ul>
     </div>
   );
 };

@@ -32,8 +32,7 @@ const RaceDetail = ({ athleteData, resultsData }) => {
           </thead>
           <tbody>
             {raceResults.map((result, index) => {
-              const [firstName, lastName] = result.Name.split(' '); // Split the full name to get first and last names
-              return (
+               return (
                 <tr key={index}>
                   <td style={{ border: '1px solid #ddd', padding: '8px' }}>
                   <Link to={`/race/${result.Race.replace(/ /g, '_')}/${result.Date.replace(/\//g, '-')}/${result.Name.replace(/ /g, '_')}`}>
