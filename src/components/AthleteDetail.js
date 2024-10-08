@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const AthleteDetail = ({ athleteData, resultsData }) => {
   const { athletename } = useParams();
@@ -31,8 +31,8 @@ const AthleteDetail = ({ athleteData, resultsData }) => {
       <p>Age: {athlete.age}</p>
       <p>Gender: {athlete.gender}</p>
 
-       {/* Display athlete's results in a table */}
-       <h2>Race Results</h2>
+      {/* Display athlete's results in a table */}
+      <h2>Race Results</h2>
       {athleteResults.length > 0 ? (
         <table style={{ width: '100%', borderCollapse: 'collapse'}}>
           <thead>
@@ -51,7 +51,11 @@ const AthleteDetail = ({ athleteData, resultsData }) => {
           <tbody>
             {athleteResults.map((result, index) => (
               <tr key={index}>
-                <td style={{ border: '1px solid #ddd', padding: '8px' }}>{result.Race}</td>
+                <td style={{ border: '1px solid #ddd', padding: '8px' }}>
+                <Link to={`/race/${result.Race.replace(/ /g, '_')}/${result.Date.replace(/\//g, '-')}`}>
+                    {result.Race}
+                  </Link>
+                </td>
                 <td style={{ border: '1px solid #ddd', padding: '8px' }}>{result.Date}</td>
                 <td style={{ border: '1px solid #ddd', padding: '8px' }}>{result.Distance}</td>
                 <td style={{ border: '1px solid #ddd', padding: '8px' }}>{result.Swim || 'N/A'}</td>

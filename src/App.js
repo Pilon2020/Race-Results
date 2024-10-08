@@ -1,9 +1,10 @@
+import React, { useEffect, useState } from 'react'; // Ensure these are imported
 import Papa from 'papaparse'; // Import PapaParse
-import React, { useEffect, useState } from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import AthleteDetail from './components/AthleteDetail';
-
+import RaceDetail from './components/RaceDetail';
+import RaceAthleteDetail from './components/RaceAthleteDetail';
 
 const App = () => {
   const [athleteData, setAthleteData] = useState([]);
@@ -45,6 +46,14 @@ const App = () => {
         <Route
           path="/athlete/:athletename"
           element={<AthleteDetail athleteData={athleteData} resultsData={resultsData} />}
+        />
+        <Route 
+          path="/race/:racename/:year"
+          element={<RaceDetail athleteData={athleteData} resultsData={resultsData} />}
+        />
+        <Route 
+          path="/race/:racename/:year/:athletename"
+          element={<RaceAthleteDetail athleteData={athleteData} resultsData={resultsData} />} // Fixed here
         />
       </Routes>
     </Router>
