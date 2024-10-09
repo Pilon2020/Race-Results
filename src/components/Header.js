@@ -70,6 +70,8 @@ const Header = ({ athleteData }) => {
       <nav>
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/compare">Compare</Link></li>
+          <li><Link to="/analysis">Analysis</Link></li>
         </ul>
       </nav>
       {/* Render the search bar only if not on the home page */}

@@ -74,21 +74,20 @@ const AthleteDetail = ({ athleteData, resultsData }) => {
       </div>
 
       {/* Filter Inputs */}
-      <div className='filters' style={{ padding: '10px', display: 'flex', gap: '10px' }}>
+      <div className='filters'>
         <input
           type='text'
-          placeholder='Search'
+          placeholder='Race Search'
           value={search}
           onChange={handleSearchChange}
-          style={{ padding: '5px' }}
         />
-        <select value={selectedYear} onChange={handleYearChange} style={{ padding: '5px' }}>
+        <select value={selectedYear} onChange={handleYearChange}>
           <option value='All Years'>All Years</option>
           {uniqueYears.map((year, index) => (
             <option key={index} value={year}>{year}</option>
           ))}
         </select>
-        <select value={selectedRaceType} onChange={handleRaceTypeChange} style={{ padding: '5px' }}>
+        <select value={selectedRaceType} onChange={handleRaceTypeChange}>
           <option value='All Race Types'>All Race Types</option>
           {uniqueDistances.map((distance, index) => (
             <option key={index} value={distance}>{distance}</option>

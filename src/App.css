@@ -1,4 +1,4 @@
-/* Ensure the gradient covers the entire page */
+/* Global Styles */
 html {
   height: 100%;
   margin: 0;
@@ -12,20 +12,24 @@ body {
   border-radius: 10px;
 }
 
+/* Typography */
+h1, h2 {
+  margin: 0;
+}
+
 h1 {
   font-size: 4vh;
-  margin: 0px;
 }
 
 h2 {
-  margin: 0px;
   margin-top: 10px;
 }
 
 p {
-  margin: 0px;
+  margin: 0;
 }
 
+/* Container Styles */
 .container {
   position: absolute;
   top: 25%;
@@ -33,12 +37,12 @@ p {
   transform: translateX(-50%);
 }
 
+/* Input and Dropdown Styles */
 input#search {
-  color: black; /* Set text color to black for visibility */
+  color: black;
   padding: 12px 10px;
   width: 60vw;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-radius: 5px;
   border: none;
   outline: none;
 }
@@ -47,17 +51,15 @@ ul.drop {
   position: absolute;
   left: 0;
   right: 0;
+  width: 100%;
   background: white;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px;
   overflow: hidden;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
   max-height: 0;
   opacity: 0;
   transform: translateY(-20px);
   transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
   margin-top: 0;
-  padding-left: 0;  /* Remove padding */
 }
 
 ul.drop.show {
@@ -69,11 +71,11 @@ ul.drop.show {
 }
 
 ul li {
-  font-size: 13px;
-  padding: 10px 10px;
+  font-size: 17px;
+  padding: 10px;
   list-style: none;
-  margin: 0;  /* Remove margin */
-  text-align: left;  /* Ensure text aligns to the left */
+  margin: 0;
+  text-align: left;
 }
 
 .match {
@@ -81,111 +83,158 @@ ul li {
   color: green;
 }
 
-@media only screen and (min-width: 600px) {
-  input#search {
-    width: 40vw; /* Adjust width for larger screens */
-  }
+/* Flexbox for Filters */
+.filters {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
 }
 
+input,
+select {
+  border: none;
+  border-radius: 5px;
+  background: white;
+  padding: 5px;
+}
+
+/* Header Styles */
 .header {
-  position: fixed; /* Fixes the header to the top of the page */
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0; /* Ensures the header stretches across the full width */
-  background-color: rgba(0, 60, 84, 0.9); /* Semi-transparent background */
-  color: white; /* Text color */
-  padding: 10px 20px; /* Padding for spacing */
-  z-index: 1000; /* Ensures the header stays above other elements */
-  height: 50px; /* Increased height to accommodate search bar */
-  display: flex; /* Use Flexbox */
-  justify-content: space-between; /* Space between nav links and search bar */
-  align-items: center; /* Center items vertically */
-
- /* Styles for search container and dropdown */
- .search-container {
+  right: 0;
+  background-color: rgba(0, 60, 84, 0.9);
+  color: white;
+  padding: 10px;
+  z-index: 1000;
+  height: 50px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  position: relative; /* Ensure dropdown aligns properly */
-  width: 30vw; /* Adjusted width for alignment */
-}
-
-input#search {
-  color: black; /* Set text color to black for visibility */
-  padding: 12px 10px;
-  width: 100%; /* Set to 100% of the container */
-  border-radius: 5px;
-  border: none;
-  outline: none;
-}
-
-ul.drop {
-  position: absolute; /* Position it absolutely */
-  left: 0; /* Align it with the left side of the input */
-  width: 100%; /* Match the width of the input */
-  top: 100%; /* Position just below the input */
-  background: white;
-  border-radius: 5px;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
-}
-
-ul.drop.show {
-  max-height: 200px; /* Adjust max height if necessary */
-  opacity: 1;
-  overflow-y: auto;
-  color: black;
-}
-
-ul li {
-  font-size: 13px;
-  padding: 10px 10px;
-  list-style: none;
-}
-
-.nav-links {
-  list-style: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
-  display: flex; /* Flexbox for horizontal alignment */
-  gap: 15px; /* Space between links */
-}
-
-.nav-links a {
-  color: white; /* Link color */
-  text-decoration: none; /* Remove underline */
-}
-
-.nav-links a:hover {
-  text-decoration: underline; /* Underline on hover */
-}
-
-@media only screen and (min-width: 600px) {
-  input#search {
-    width: 100%; /* Full width for larger screens */
-  }
-}
-}
-
-.nav-links {
-  list-style: none; /* Remove default list styling */
-  padding: 0; /* Remove default padding */
-  display: flex; /* Flexbox for horizontal alignment */
-  gap: 15px; /* Space between links */
-}
-
-.nav-links a {
-  color: white; /* Link color */
-  text-decoration: none; /* Remove underline */
-}
-
-.nav-links a:hover {
-  text-decoration: underline; /* Underline on hover */
 }
 
 .search-container {
   display: flex;
   align-items: center;
-  position: relative; /* Ensure dropdown aligns properly */
+  position: relative;
+  width: 30vw;
 }
 
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.nav-links a:hover {
+  background-color: #ddd;
+  color: black;
+  border-radius: 5px;
+}
+
+/* Racer List Styles */
+.racer-list {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.racer-list h1 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.racer-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.racer-list th,
+.racer-list td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.racer-list th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.racer-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.racer-list tr:hover {
+  background-color: #ddd;
+}
+
+.racer-list td {
+  color: #555;
+}
+
+.racer-list p {
+  text-align: center;
+  color: #888;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .racer-list {
+    padding: 10px;
+  }
+
+  .racer-list h1 {
+    font-size: 20px;
+  }
+
+  .racer-list th,
+  .racer-list td {
+    padding: 8px;
+  }
+
+  input#search {
+    width: 100%; /* Full width for larger screens */
+  }
+}
+
+/* Content Wrapper for Analysis Component */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.table-column {
+  flex: 4;
+}
+
+.info-column {
+  flex: 4;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add this to your CSS file */
+.narrow-datepicker {
+  width: 120px; /* Adjust width to your preference */
+  margin-left: 5px; /* Space between label and DatePicker */
+}

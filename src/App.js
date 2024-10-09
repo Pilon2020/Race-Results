@@ -5,6 +5,8 @@ import Home from './components/Home';
 import AthleteDetail from './components/AthleteDetail';
 import RaceDetail from './components/RaceDetail';
 import RaceAthleteDetail from './components/RaceAthleteDetail';
+import Analysis from './components/Analysis';
+import Compare from './components/compare';
 import './App.css';
 import Header from './components/Header';
 
@@ -58,6 +60,8 @@ const App = () => {
           path="/race/:racename/:year/:athletename"
           element={<RaceAthleteDetail athleteData={athleteData} resultsData={resultsData} />}
         />
+        <Route path='/compare' element={<Compare/>}/>
+        <Route path='/analysis' element={<Analysis/>}/>
       </Routes>
     </Router>
   );
