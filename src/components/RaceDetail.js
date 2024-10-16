@@ -14,7 +14,7 @@ const RaceDetail = ({ athleteData, resultsData }) => {
 
   return (
     <div>
-      <h1>Race Detail for {decodeURIComponent(racename.replace(/_/g, ' '))}</h1>
+      <h1>Race Detail for </h1>
       <h2>Date: {raceDate}</h2>
 
       {raceResults.length > 0 ? (

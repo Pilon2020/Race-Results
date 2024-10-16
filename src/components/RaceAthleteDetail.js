@@ -42,7 +42,9 @@ const RaceAthleteDetail = ({ athleteData, resultsData }) => {
     return (
         <body>
         <h1>
-            {athlete.first_name} {athlete.last_name} - {athleteResults.Race} {year.split('-')[2]}
+            {athlete.first_name} {athlete.last_name} - <Link to={`/race/${athleteResults.Race.replace(/ /g, '_')}/${athleteResults.Date.replace(/\//g, '-')}`}>
+                    {athleteResults.Race} {year.split('-')[2]}
+                </Link>
         </h1>
         <h2><Link to={`/athlete/${athletename}`}>Athlete Profile</Link></h2>
         <div>

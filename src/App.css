@@ -51,7 +51,7 @@ ul.drop {
   position: absolute;
   left: 0;
   right: 0;
-  width: 100%;
+  width: 60vw;
   background: white;
   border-radius: 5px;
   overflow: hidden;
@@ -66,6 +66,7 @@ ul.drop.show {
   max-height: 200px;
   opacity: 1;
   transform: translateY(0);
+  width: 60vw;
   overflow-y: auto;
   color: black;
 }

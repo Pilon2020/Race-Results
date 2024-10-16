@@ -117,7 +117,7 @@ const AthleteDetail = ({ athleteData, resultsData }) => {
               {filteredResults.map((result, index) => (
                 <tr key={index}>
                   <td style={{ border: '1px solid #ddd', padding: '8px' }}>
-                    <Link to={`/race/${result.Race.replace(/ /g, '_')}/${result.Date.replace(/\//g, '-')}`}>
+                    <Link to={`/race/${result.Race.replace(/ /g, '_')}/${result.Date.replace(/\//g, '-')}/${result.Name.replace(/ /g, '_')}`}>
                       {result.Race}
                     </Link>
                   </td>
